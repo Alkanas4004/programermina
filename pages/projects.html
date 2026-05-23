@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المشاريع | NEXUS DEV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/pages/projects.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+    
+    <main>
+        <section class="projects-header">
+            <div class="container">
+                <h1>مشاريعي <span class="gradient-text">الإبداعية</span></h1>
+                <p>استكشف مجموعة من المشاريع التي قمت بتطويرها بأحدث التقنيات</p>
+            </div>
+        </section>
+        
+        <section class="projects-section">
+            <div class="container">
+                <div class="projects-toolbar">
+                    <div class="projects-filters">
+                        <button class="filter-btn active" data-filter="all">الكل</button>
+                        <button class="filter-btn" data-filter="web">تطوير ويب</button>
+                        <button class="filter-btn" data-filter="mobile">تطبيقات جوال</button>
+                        <button class="filter-btn" data-filter="security">أمن سيبراني</button>
+                        <button class="filter-btn" data-filter="ai">ذكاء اصطناعي</button>
+                    </div>
+                    <div class="projects-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="project-search" placeholder="ابحث عن مشروع...">
+                    </div>
+                </div>
+                
+                <div id="projects-container" class="projects-grid-advanced">
+                    <!-- المشاريع هتتحمل هنا -->
+                </div>
+                
+                <div id="pagination" class="pagination-container"></div>
+            </div>
+        </section>
+    </main>
+    
+    <div id="footer-container"></div>
+    <div id="toast-container"></div>
+
+    <script src="/js/config/constants.js"></script>
+    <script src="/js/config/firebase-config.js"></script>
+    <script src="/js/utils/helpers.js"></script>
+    <script src="/js/utils/validators.js"></script>
+    <script src="/js/utils/crypto.js"></script>
+    <script src="/js/services/auth-service.js"></script>
+    <script src="/js/services/projects-service.js"></script>
+    <script src="/js/services/messages-service.js"></script>
+    <script src="/js/components/toast.js"></script>
+    <script src="/js/components/loader.js"></script>
+    <script src="/js/components/navbar.js"></script>
+    <script src="/js/pages/projects.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
