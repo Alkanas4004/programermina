@@ -1,0 +1,57 @@
+/**
+ * Card Components
+ */
+
+.service-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(191, 78, 255, 0.2);
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--gold);
+    box-shadow: var(--shadow-glow);
+}
+
+.service-icon {
+    font-size: 60px;
+    margin-bottom: 25px;
+    color: var(--gold);
+}
+
+.project-featured-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    padding: 40px;
+    border: 1px solid rgba(191, 78, 255, 0.2);
+    transition: var(--transition);
+}
+
+.project-featured-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.contact-glass-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    background: var(--bg-card);
+    backdrop-filter: blur(15px);
+    border-radius: 48px;
+    padding: 50px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .contact-glass-card {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+}
