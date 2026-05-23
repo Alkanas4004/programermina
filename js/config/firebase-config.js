@@ -1,7 +1,6 @@
 /**
  * Firebase Configuration File
- * ده ملف الإعدادات الخاصة بـ Firebase
- * IMPORTANT: متحطش الملف ده في الـ GitHub ابداً
+ * IMPORTANT: استبدل الإعدادات بإعدادات مشروعك الحقيقي من Firebase Console
  */
 
 // Firebase Config - استبدلها بإعدادات مشروعك
@@ -14,27 +13,44 @@ const firebaseConfig = {
     appId: "1:123456789012:web:abcdef123456"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// تحقق من وجود Firebase قبل التهيئة
+if(typeof firebase !== 'undefined' && firebase.initializeApp) {
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    
+    // Initialize services
+    window.db = firebase.firestore();
+    window.auth = firebase.auth();
+    
+    // Storage - علقه لو مش محتاجه أو لو بيجي خطأ
+    // window.storage = firebase.storage();
+    
+    // Google Provider
+    window.googleProvider = new firebase.auth.GoogleAuthProvider();
+    
+    // Firestore settings
+    if(window.db) {
+        db.settings({ 
+            cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
+        });
+        
+        // Enable offline persistence (مع catch للأخطاء)
+        db.enablePersistence()
+            .catch((err) => {
+                if(err.code == 'failed-precondition') {
+                    console.warn("Multiple tabs open, persistence can only be enabled in one tab at a a time.");
+                } else if(err.code == 'unimplemented') {
+                    console.warn("The current browser doesn't support persistence.");
+                }
+            });
+    }
+    
+    console.log("✅ Firebase initialized successfully");
+    
+} else {
+    console.warn("⚠️ Firebase not loaded, using local storage fallback");
+}
 
-// Export instances (global for this project structure)
-window.db = firebase.firestore();
-window.auth = firebase.auth();
-window.storage = firebase.storage();
-
-// Google Provider
-window.googleProvider = new firebase.auth.GoogleAuthProvider();
-
-// Firestore settings for better performance
-db.settings({ 
-    cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED,
-    experimentalForceLongPolling: true 
-});
-
-// Enable offline persistence
-db.enablePersistence()
-    .catch((err) => {
-        console.warn("Offline persistence error:", err);
-    });
-
-console.log("✅ Firebase initialized successfully");
+// خليها سليمة عشان الأخطاء متظهرش
+window.storage = window.storage || null;
