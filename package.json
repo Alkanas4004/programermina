@@ -1,0 +1,19 @@
+{
+  "name": "nexus-dev-portfolio",
+  "version": "3.0.0",
+  "description": "Professional Portfolio with Firebase - خيالي وجبار",
+  "author": "Yusuf Al-Mansouri",
+  "license": "MIT",
+  "scripts": {
+    "start": "serve .",
+    "dev": "live-server --port=3000",
+    "build": "echo 'Build step configured'"
+  },
+  "dependencies": {
+    "firebase": "^9.22.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.0"
+  }
+}
