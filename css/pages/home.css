@@ -1,0 +1,77 @@
+/**
+ * Home Page Specific Styles
+ */
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at 30% 40%, #1A0B2E 0%, #0A0A0F 100%);
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content {
+    z-index: 10;
+}
+
+.hero-badge {
+    background: rgba(191, 78, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 6px 18px;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(191, 78, 255, 0.5);
+}
+
+.glitch-title {
+    font-size: 5rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-purple), 0 0 20px #9D00FF;
+    margin-bottom: 20px;
+}
+
+.hero-rotator {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: #CCC;
+}
+
+.services-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #0A0A0F 0%, #0F071A 100%);
+}
+
+.featured-section {
+    padding: 100px 0;
+}
+
+.contact-section {
+    padding: 100px 0;
+    background: #0F071A;
+}
+
+@media (max-width: 768px) {
+    .glitch-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-rotator {
+        font-size: 1.2rem;
+    }
+}
