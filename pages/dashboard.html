@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | MINA Programmer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components/navbar.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
+    <link rel="stylesheet" href="../css/pages/dashboard.css">
+    <link rel="stylesheet" href="../css/themes/neon-theme.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+    
+    <main>
+        <div class="dashboard-container">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <h1>لوحة <span class="gradient-highlight">التحكم</span></h1>
+                        <p>مرحباً بك في لوحة التحكم الخاصة بك</p>
+                    </div>
+                    <a href="add-project.html" class="add-project-btn" id="add-project-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>إضافة مشروع جديد</span>
+                    </a>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-code"></i>
+                        <div class="number" id="stat-projects">0</div>
+                        <div class="label">إجمالي المشاريع</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-envelope"></i>
+                        <div class="number" id="stat-messages">0</div>
+                        <div class="label">الرسائل الواردة</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="number" id="stat-users">1</div>
+                        <div class="label">المستخدمين</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-eye"></i>
+                        <div class="number" id="stat-views">0</div>
+                        <div class="label">إجمالي المشاهدات</div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-tabs">
+                    <button class="tab-btn active" data-tab="projects">
+                        <i class="fas fa-folder"></i> المشاريع
+                    </button>
+                    <button class="tab-btn" data-tab="messages">
+                        <i class="fas fa-inbox"></i> الرسائل
+                    </button>
+                    <button class="tab-btn" data-tab="settings">
+                        <i class="fas fa-cog"></i> الإعدادات
+                    </button>
+                </div>
+                
+                <div id="tab-projects" class="tab-content active">
+                    <div class="projects-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المشروع</th>
+                                    <th>التقنيات</th>
+                                    <th>المشاهدات</th>
+                                    <th>إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projects-list">
+                                <tr><td colspan="4">جاري التحميل...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div id="tab-messages" class="tab-content">
+                    <div class="messages-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>الاسم</th>
+                                    <th>البريد</th>
+                                    <th>الرسالة</th>
+                                    <th>إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-list">
+                                <tr><td colspan="4">جاري التحميل...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div id="tab-settings" class="tab-content">
+                    <div class="form-container">
+                        <h3 class="form-title">إعدادات الموقع</h3>
+                        <form id="settings-form">
+                            <div class="input-field">
+                                <input type="text" id="site-title" value="MINA Programmer">
+                                <label>عنوان الموقع</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <div class="input-field">
+                                <input type="email" id="admin-email" value="admin@mina.dev">
+                                <label>البريد الإلكتروني للأدمن</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <button type="submit" class="btn-submit">حفظ الإعدادات</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer-container"></div>
+    <div id="toast-container"></div>
+
+    <script src="../js/config/constants.js"></script>
+    <script src="../js/config/firebase-config.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/utils/validators.js"></script>
+    <script src="../js/utils/crypto.js"></script>
+    <script src="../js/components/toast.js"></script>
+    <script src="../js/components/loader.js"></script>
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/modal.js"></script>
+    <script src="../js/services/auth-service.js"></script>
+    <script src="../js/services/projects-service.js"></script>
+    <script src="../js/services/messages-service.js"></script>
+    <script src="../js/pages/dashboard.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
