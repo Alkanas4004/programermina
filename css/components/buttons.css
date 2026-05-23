@@ -1,0 +1,61 @@
+/**
+ * Button Components
+ */
+
+.btn-primary-glow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    border-radius: 60px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    background: linear-gradient(90deg, var(--gold), var(--neon-purple));
+    color: #0A0A0F;
+}
+
+.btn-secondary-glow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    border-radius: 60px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--neon-purple);
+    color: var(--neon-purple);
+    background: transparent;
+}
+
+.btn-primary-glow:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary-glow:hover {
+    background: rgba(191, 78, 255, 0.2);
+}
+
+.btn-submit {
+    background: var(--gradient-gold);
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    color: #0A0A0F;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
