@@ -1,0 +1,68 @@
+/**
+ * Neon Theme - Special Effects
+ */
+
+.gradient-highlight {
+    background: var(--gradient-mix);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(191, 78, 255, 0.15);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--neon-purple);
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Orbitron', monospace;
+}
+
+.tech-badge {
+    background: rgba(191, 78, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--neon-purple);
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    border: 1px solid var(--neon-purple);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    z-index: 20;
+}
+
+.slider-arrow.prev { left: 20px; }
+.slider-arrow.next { right: 20px; }
+
+.featured-slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-slide {
+    min-width: 100%;
+    padding: 20px;
+}
