@@ -1,0 +1,21 @@
+# حماية الملفات الحساسة
+<FilesMatch "\.(json|env|config\.js)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# منع عرض محتويات المجلدات
+Options -Indexes
+
+# حماية من الـ XSS
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "DENY"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ضغط الملفات
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript
+</IfModule>
