@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0A0A0F">
+    <title>MINA | programer</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/buttons.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/themes/neon-theme.css">
+    <link rel="stylesheet" href="css/animations/effects.css">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+    
+    <!-- Loader Component -->
+    <div id="global-loader" class="global-loader">
+        <div class="loader-ring-cosmic"></div>
+        <div class="loader-text">INITIALIZING_NEXUS</div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div id="app">
+        <!-- Navbar will be injected here -->
+        <div id="navbar-container"></div>
+        
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section" id="hero">
+                <div class="hero-particles" id="particles-canvas"></div>
+                <div class="hero-content">
+                    <div class="hero-badge">✦ NEXT GEN DEVELOPER ✦</div>
+                    <h1 class="glitch-title" data-text="يوسف المنصوري">يوسف المنصوري</h1>
+                    <div class="hero-rotator" id="role-rotator"></div>
+                    <p class="hero-desc">مهندس برمجيات | خبير أمن سيبراني | مبتكر حلول ذكية</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary-glow" id="explore-btn">
+                            <span>استكشف المشاريع</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="btn-secondary-glow" id="contact-btn">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>تواصل معي</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Services Section -->
+            <section class="services-section" id="services">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-badge">✦ WHAT I DO ✦</span>
+                        <h2>خدمات <span class="gradient-highlight">احترافية</span></h2>
+                    </div>
+                    <div class="services-grid" id="services-grid">
+                        <!-- injected via JS -->
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Featured Projects -->
+            <section class="featured-section" id="featured">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-badge">✦ LATEST WORKS ✦</span>
+                        <h2>أحدث <span class="gradient-highlight">المشاريع</span></h2>
+                    </div>
+                    <div class="featured-slider-container" id="featured-slider">
+                        <div class="slider-wrapper" id="slider-wrapper"></div>
+                        <button class="slider-arrow prev" id="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" id="slider-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section class="contact-section" id="contact">
+                <div class="container">
+                    <div class="contact-glass-card">
+                        <div class="contact-info">
+                            <h3>لنعمل <span class="gradient-highlight">معاً</span></h3>
+                            <p>لديك فكرة مشروع؟ أو تحتاج استشارة؟</p>
+                            <div class="contact-details">
+                                <div><i class="fas fa-envelope"></i> yusuf@nexus.dev</div>
+                                <div><i class="fab fa-discord"></i> yusuf.nexus</div>
+                                <div><i class="fab fa-github"></i> /yusuf-nexus</div>
+                            </div>
+                        </div>
+                        <form id="contact-form" class="contact-form">
+                            <div class="input-field">
+                                <input type="text" id="contact-name" required>
+                                <label>الاسم الكامل</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <div class="input-field">
+                                <input type="email" id="contact-email" required>
+                                <label>البريد الإلكتروني</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <div class="input-field">
+                                <textarea id="contact-message" rows="3" required></textarea>
+                                <label>رسالتك</label>
+                                <div class="input-line"></div>
+                            </div>
+                            <button type="submit" class="btn-submit">
+                                <span>إرسال الرسالة</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            <div id="contact-feedback" class="feedback-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <div id="footer-container"></div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container"></div>
+    
+    <!-- Project Scripts (organized) -->
+    <script src="js/config/constants.js"></script>
+    <script src="js/config/firebase-config.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/utils/validators.js"></script>
+    <script src="js/utils/crypto.js"></script>
+    <script src="js/services/auth-service.js"></script>
+    <script src="js/services/projects-service.js"></script>
+    <script src="js/services/messages-service.js"></script>
+    <script src="js/components/toast.js"></script>
+    <script src="js/components/loader.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/slider.js"></script>
+    <script src="js/pages/home.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
