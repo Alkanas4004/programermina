@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0A0A0F">
-    <title>MINA | programer</title>
+    <meta name="description" content="MINA Programmer - مطور برمجيات محترف، أعرض مشاريعي وخبراتي في عالم البرمجة">
+    <title>MINA | مبرمج محترف</title>
     
-    <!-- External Libraries -->
+    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
@@ -30,28 +31,28 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
 </head>
 <body>
-    
-    <!-- Loader Component -->
+
+    <!-- Loader -->
     <div id="global-loader" class="global-loader">
         <div class="loader-ring-cosmic"></div>
         <div class="loader-text">INITIALIZING_NEXUS</div>
     </div>
     
-    <!-- Main App Container -->
+    <!-- Main App -->
     <div id="app">
-        <!-- Navbar will be injected here -->
+        <!-- Navbar -->
         <div id="navbar-container"></div>
         
         <!-- Main Content -->
         <main id="main-content">
             <!-- Hero Section -->
-            <section class="hero-section" id="hero">
+            <section class="hero-section" id="home">
                 <div class="hero-particles" id="particles-canvas"></div>
                 <div class="hero-content">
                     <div class="hero-badge">✦ NEXT GEN DEVELOPER ✦</div>
-                    <h1 class="glitch-title" data-text="يوسف المنصوري">يوسف المنصوري</h1>
+                    <h1 class="glitch-title" data-text="MINA ALI">MINA ALI</h1>
                     <div class="hero-rotator" id="role-rotator"></div>
-                    <p class="hero-desc">مهندس برمجيات | خبير أمن سيبراني | مبتكر حلول ذكية</p>
+                    <p class="hero-desc">مبرمج محترف | خبير أمن سيبراني | مبتكر حلول ذكية</p>
                     <div class="hero-buttons">
                         <button class="btn-primary-glow" id="explore-btn">
                             <span>استكشف المشاريع</span>
@@ -72,9 +73,7 @@
                         <span class="section-badge">✦ WHAT I DO ✦</span>
                         <h2>خدمات <span class="gradient-highlight">احترافية</span></h2>
                     </div>
-                    <div class="services-grid" id="services-grid">
-                        <!-- injected via JS -->
-                    </div>
+                    <div class="services-grid" id="services-grid"></div>
                 </div>
             </section>
             
@@ -101,9 +100,9 @@
                             <h3>لنعمل <span class="gradient-highlight">معاً</span></h3>
                             <p>لديك فكرة مشروع؟ أو تحتاج استشارة؟</p>
                             <div class="contact-details">
-                                <div><i class="fas fa-envelope"></i> yusuf@nexus.dev</div>
-                                <div><i class="fab fa-discord"></i> yusuf.nexus</div>
-                                <div><i class="fab fa-github"></i> /yusuf-nexus</div>
+                                <div><i class="fas fa-envelope"></i> mina@programmer.dev</div>
+                                <div><i class="fab fa-discord"></i> mina.dev</div>
+                                <div><i class="fab fa-github"></i> /mina-programmer</div>
                             </div>
                         </div>
                         <form id="contact-form" class="contact-form">
@@ -140,20 +139,36 @@
     <!-- Toast Notification -->
     <div id="toast-container" class="toast-container"></div>
     
-    <!-- Project Scripts (organized) -->
+    <!-- Scripts -->
     <script src="js/config/constants.js"></script>
     <script src="js/config/firebase-config.js"></script>
     <script src="js/utils/helpers.js"></script>
     <script src="js/utils/validators.js"></script>
     <script src="js/utils/crypto.js"></script>
+    <script src="js/utils/dom-utils.js"></script>
     <script src="js/services/auth-service.js"></script>
     <script src="js/services/projects-service.js"></script>
     <script src="js/services/messages-service.js"></script>
+    <script src="js/services/storage-service.js"></script>
     <script src="js/components/toast.js"></script>
     <script src="js/components/loader.js"></script>
     <script src="js/components/navbar.js"></script>
     <script src="js/components/slider.js"></script>
+    <script src="js/components/modal.js"></script>
+    <script src="js/vendors/particles.js"></script>
     <script src="js/pages/home.js"></script>
     <script src="js/app.js"></script>
+    
+    <script>
+        // Particles Effect
+        document.addEventListener('DOMContentLoaded', () => {
+            if(document.getElementById('particles-canvas')) {
+                new ParticlesEffect('particles-canvas', {
+                    count: 100,
+                    color: '#BF4EFF'
+                });
+            }
+        });
+    </script>
 </body>
 </html>
