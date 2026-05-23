@@ -1,0 +1,152 @@
+/**
+ * MAIN STYLESHEET
+ * Nexus Dev - Professional Portfolio
+ * Colors: Gold (#FFD700) | Neon Purple (#BF4EFF) | Cyan (#00D4FF)
+ */
+
+:root {
+    --bg-primary: #0A0A0F;
+    --bg-secondary: #0F071A;
+    --bg-card: rgba(20, 20, 40, 0.6);
+    --text-primary: #E0E0FF;
+    --text-secondary: #AAAAAA;
+    --gold: #FFD700;
+    --gold-dark: #B8941E;
+    --neon-purple: #BF4EFF;
+    --neon-cyan: #00D4FF;
+    --gradient-gold: linear-gradient(135deg, #FFD700, #FFB800);
+    --gradient-purple: linear-gradient(135deg, #BF4EFF, #9D00FF);
+    --gradient-cyan: linear-gradient(135deg, #00D4FF, #0099CC);
+    --gradient-mix: linear-gradient(135deg, #FFD700, #BF4EFF, #00D4FF);
+    --shadow-glow: 0 0 30px rgba(191, 78, 255, 0.3);
+    --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
+    --border-radius: 24px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-purple);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* Container */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Section Styles */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(191, 78, 255, 0.15);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--neon-purple);
+    margin-bottom: 20px;
+    border: 1px solid rgba(191, 78, 255, 0.3);
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Orbitron', monospace;
+    margin-bottom: 15px;
+}
+
+.gradient-highlight {
+    background: var(--gradient-mix);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Loading Animation */
+.global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+}
+
+.loader-ring-cosmic {
+    width: 80px;
+    height: 80px;
+    border: 3px solid transparent;
+    border-top-color: var(--gold);
+    border-right-color: var(--neon-purple);
+    border-radius: 50%;
+    animation: spinRing 1s linear infinite;
+}
+
+@keyframes spinRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    margin-top: 30px;
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--neon-purple);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+}
